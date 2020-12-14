@@ -25,20 +25,34 @@
       </div>
     </header>
     <main class="post-content">
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus quos doloremque ut in distinctio, quam delectus?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?</p>
     </main>
     <footer>
-
+      <!--Form-->
+      <div class="comments" v-if="true">
+        <app-comment v-for="comment in 5" :key="comment" :comment="comment"/>
+      </div>
+      <div class="text-center" v-else>
+        Комментариев нет
+      </div>
     </footer>
   </article>
 </template>
 
 <script>
+import AppComment from "@/components/main/Comment";
+
 export default {
   validate({params}) {
     return Boolean(params.id)
+  },
+  components: {
+    AppComment
   }
 }
 </script>

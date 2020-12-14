@@ -20,7 +20,6 @@
       <el-button round @click="openPost">Открыть</el-button>
       <span>
       <i class="el-icon-message"></i>
-        18
     </span>
     </footer>
   </el-card>
