@@ -33,7 +33,7 @@
         quos doloremque ut in distinctio, quam delectus?</p>
     </main>
     <footer>
-      <!--Form-->
+      <app-form></app-form>
       <div class="comments" v-if="true">
         <app-comment v-for="comment in 5" :key="comment" :comment="comment"/>
       </div>
@@ -46,13 +46,15 @@
 
 <script>
 import AppComment from "@/components/main/Comment";
+import AppForm from "@/components/main/CommentForm";
 
 export default {
   validate({params}) {
     return Boolean(params.id)
   },
   components: {
-    AppComment
+    AppComment,
+    AppForm
   }
 }
 </script>
