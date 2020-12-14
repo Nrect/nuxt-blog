@@ -14,3 +14,12 @@ html, body {
 .text-center {
   text-align: center;
 }
+
+// Анимация перехода страниц
+.page-enter-active, .page-leave-active, {
+  transition: opacity .3s;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
