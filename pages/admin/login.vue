@@ -56,6 +56,7 @@ export default {
       }
     }
   },
+  //на сервере выполнять не нужно, тк выдаст ошибки
   mounted() {
     const {message} = this.$route.query
 
