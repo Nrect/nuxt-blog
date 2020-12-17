@@ -8,7 +8,10 @@ export const actions = {
           {title: 'Post 3', date: new Date(), views: 65, comments: [1, 2], _id: Math.random()},
 
         ])
-      }, 1200)
+      }, 1000)
     })
+  },
+  async remove({}, id) {
+
   }
 }
