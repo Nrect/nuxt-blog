@@ -5,23 +5,23 @@
     :default-active="$route.path"
   >
     <el-menu-item index="/admin">
-      <i class="el-icon-menu"></i>
+      <i class="el-icon-menu" />
       <span>Аналитика</span>
     </el-menu-item>
     <el-menu-item index="/admin/create">
-      <i class="el-icon-edit-outline"></i>
+      <i class="el-icon-edit-outline" />
       <span>Создать</span>
     </el-menu-item>
     <el-menu-item index="/admin/list">
-      <i class="el-icon-tickets"></i>
+      <i class="el-icon-tickets" />
       <span>Посты</span>
     </el-menu-item>
     <el-menu-item index="/admin/user">
-      <i class="el-icon-service"></i>
+      <i class="el-icon-service" />
       <span>Пользователи</span>
     </el-menu-item>
     <el-menu-item index="/admin/logout">
-      <i class="el-icon-setting"></i>
+      <i class="el-icon-setting" />
       <span>Выйти</span>
     </el-menu-item>
   </el-menu>
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "Aside"
+  name: 'Aside'
 }
 </script>
 

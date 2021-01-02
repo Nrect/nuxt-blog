@@ -3,37 +3,36 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setToken(state, token) {
+  setToken (state, token) {
     state.token = token
   },
-  clearToken(state) {
+  clearToken (state) {
     state.token = null
   }
 }
 
 export const actions = {
-  async login({commit, dispatch}, formData) {
+  login ({ commit, dispatch }, formData) {
     try {
-      const token = await new Promise((resolve, reject) => {
-        setTimeout(() => resolve('mock-token'), 2000)
-      })
+      const { token } = this.$axios.$post('/server/api/auth/admin/login', formData)
+      console.log('token', token)
       dispatch('setToken', token)
     } catch (e) {
       // {root: true} будем искать в корне
-      commit('setError', e, {root: true})
+      commit('setError', e, { root: true })
       throw e
     }
   },
-  async createUser({commit}, formData) {
+  async createUser ({ commit }, formData) {
     try {
-      console.log('createUser', formData)
+      await console.log('createUser', formData)
     } catch (e) {
     }
   },
-  setToken({commit}, token) {
+  setToken ({ commit }, token) {
     commit('setToken', token)
   },
-  logout({commit}) {
+  logout ({ commit }) {
     commit('clearToken')
   }
 }

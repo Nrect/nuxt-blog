@@ -3,10 +3,10 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setError(state, error) {
+  setError (state, error) {
     state.error = error
   },
-  clearError(state, error) {
+  clearError (state, error) {
     state.error = null
   }
 }

@@ -1,15 +1,19 @@
 <template>
   <div class="error-content">
     <div class="error-content__content">
-      <h1 class="error-content__title">Страница не найдена!</h1>
-      <nuxt-link to="/">Вернуться на главную</nuxt-link>
+      <h1 class="error-content__title">
+        Страница не найдена!
+      </h1>
+      <nuxt-link to="/">
+        Вернуться на главную
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "error"
+  name: 'Error'
 }
 </script>
 

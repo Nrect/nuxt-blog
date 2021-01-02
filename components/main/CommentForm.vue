@@ -1,20 +1,20 @@
 <template>
   <el-form
+    ref="form"
     :model="controls"
     :rules="rules"
-    ref="form"
     @submit.native.prevent="onSubmit"
   >
     <h1>Добавить комментарий</h1>
 
     <el-form-item label="Ваше имя" prop="name">
-      <el-input v-model.trim="controls.name"/>
+      <el-input v-model.trim="controls.name" />
     </el-form-item>
 
     <el-form-item label="Текст комментария" prop="text">
       <el-input
-        type="textarea"
         v-model.trim="controls.text"
+        type="textarea"
         resize="none"
         :rows="2"
       />
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       loading: false,
       controls: {
@@ -44,20 +44,21 @@ export default {
       },
       rules: {
         name: [
-          {required: true, message: 'Имя не должно быть пустым', trigger: 'blur'}
+          { required: true, message: 'Имя не должно быть пустым', trigger: 'blur' }
         ],
         text: [
-          {required: true, message: 'Введите ваш комментарий', trigger: 'blur'}
+          { required: true, message: 'Введите ваш комментарий', trigger: 'blur' }
         ]
       }
     }
   },
   methods: {
-    onSubmit() {
-      this.$refs.form.validate(valid => {
+    onSubmit () {
+      this.$refs.form.validate((valid) => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
 
+          // eslint-disable-next-line no-unused-vars
           const fromData = {
             name: this.controls.name,
             text: this.controls.text,
@@ -71,7 +72,7 @@ export default {
               this.$emit('created')
             }, 2000)
           } catch (e) {
-            this.loading = false;
+            this.loading = false
           }
         }
       })
@@ -80,9 +81,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 
 </style>
-
-

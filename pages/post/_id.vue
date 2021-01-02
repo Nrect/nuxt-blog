@@ -4,16 +4,16 @@
       <div class="post-title">
         <h1>Post title</h1>
         <nuxt-link to="/">
-          <i class="el-icon-back"></i>
+          <i class="el-icon-back" />
         </nuxt-link>
       </div>
       <div class="post-info">
         <small>
-          <i class="el-icon-time"></i>
+          <i class="el-icon-time" />
           {{ new Date().toLocaleString() }}
         </small>
         <small>
-          <i class="el-icon-view"></i>
+          <i class="el-icon-view" />
           42
         </small>
       </div>
@@ -25,26 +25,32 @@
       </div>
     </header>
     <main class="post-content">
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
-        quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
-        quos doloremque ut in distinctio, quam delectus?</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
-        quos doloremque ut in distinctio, quam delectus?</p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem veritatis accusantium voluptatibus accusamus
+        quos doloremque ut in distinctio, quam delectus?
+      </p>
     </main>
     <footer>
       <app-form
-        @created="createCommentHandler"
         v-if="canAddComment"
+        @created="createCommentHandler"
       />
-      <div class="comments" v-if="true">
+      <div v-if="true" class="comments">
         <app-comment
           v-for="comment in 5"
           :key="comment"
           :comment="comment"
         />
       </div>
-      <div class="text-center" v-else>
+      <div v-else class="text-center">
         Комментариев нет
       </div>
     </footer>
@@ -52,26 +58,26 @@
 </template>
 
 <script>
-import AppComment from "@/components/main/Comment";
-import AppForm from "@/components/main/CommentForm";
+import AppComment from '@/components/main/Comment'
+import AppForm from '@/components/main/CommentForm'
 
 export default {
-  validate({params}) {
+  validate ({ params }) {
     return Boolean(params.id)
   },
-  data() {
+  components: {
+    AppComment,
+    AppForm
+  },
+  data () {
     return {
       canAddComment: true
     }
   },
   methods: {
-    createCommentHandler() {
+    createCommentHandler () {
       this.canAddComment = false
     }
-  },
-  components: {
-    AppComment,
-    AppForm
   }
 }
 </script>
@@ -109,4 +115,3 @@ export default {
   margin-bottom: 2rem;
 }
 </style>
-

@@ -1,18 +1,18 @@
 <template>
   <div class="empty-layout">
-    <nuxt/>
+    <nuxt />
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    error() {
+    error () {
       return this.$store.getters.error
     }
   },
   watch: {
-    error(value) {
+    error (value) {
       this.$message.error(value)
     }
   }

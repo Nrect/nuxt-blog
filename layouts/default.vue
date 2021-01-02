@@ -1,17 +1,17 @@
 <template>
   <el-container>
     <el-header>
-      <navigation/>
+      <navigation />
     </el-header>
     <el-main>
-      <Nuxt/>
+      <Nuxt />
     </el-main>
-    <el-footer/>
+    <el-footer />
   </el-container>
 </template>
 
 <script>
-import Navigation from "~/components/main/Navigation";
+import Navigation from '~/components/main/Navigation'
 
 export default {
   components: {

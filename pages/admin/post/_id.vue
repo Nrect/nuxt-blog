@@ -1,20 +1,22 @@
 <template>
   <div class="page-wrap">
     <el-breadcrumb separator="/" class="mb">
-      <el-breadcrumb-item to="/admin/list">Посты</el-breadcrumb-item>
+      <el-breadcrumb-item to="/admin/list">
+        Посты
+      </el-breadcrumb-item>
       <el-breadcrumb-item>{{ post.title }}</el-breadcrumb-item>
     </el-breadcrumb>
 
     <el-form
+      ref="form"
       :model="controls"
       :rules="rules"
-      ref="form"
       @submit.native.prevent="onSubmit"
     >
       <el-form-item label="Текст в формате .md или .html" prop="text">
         <el-input
-          type="textarea"
           v-model="controls.text"
+          type="textarea"
           resize="none"
           :rows="10"
         />
@@ -22,14 +24,14 @@
 
       <div class="mb">
         <small class="mr">
-          <i class="el-icon-time"></i>
+          <i class="el-icon-time" />
           <span>
             {{ new Date(post.date).toLocaleString() }}
           </span>
         </small>
 
         <small>
-          <i class="el-icon-view"></i>
+          <i class="el-icon-view" />
           <span>{{ post.views }}</span>
         </small>
       </div>
@@ -52,19 +54,11 @@
 export default {
   layout: 'admin',
   middleware: ['admin-auth'],
-  head() {
-    return {
-      title: `Редактировать | ${this.post.title}`
-    }
-  },
-  validate({params}) {
-    return Boolean(params.id)
-  },
-  async asyncData({store, params}) {
+  async asyncData ({ store, params }) {
     const post = await store.dispatch('post/fetchAdminById', params.id)
-    return {post}
+    return { post }
   },
-  data() {
+  data () {
     return {
       loading: false,
       controls: {
@@ -72,14 +66,14 @@ export default {
       },
       rules: {
         text: [
-          {required: true, message: 'Текст не должен быть пустым', trigger: 'blur'}
+          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
         ]
       }
     }
   },
   methods: {
-    onSubmit() {
-      this.$refs.form.validate(async valid => {
+    onSubmit () {
+      this.$refs.form.validate(async (valid) => {
         if (valid) {
           this.loading = true
 
@@ -98,6 +92,14 @@ export default {
         }
       })
     }
+  },
+  head () {
+    return {
+      title: `Редактировать | ${this.post.title}`
+    }
+  },
+  validate ({ params }) {
+    return Boolean(params.id)
   }
 }
 </script>
